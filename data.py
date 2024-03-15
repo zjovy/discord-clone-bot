@@ -63,7 +63,7 @@ if output_messages and input_messages:
         'output': ' '.join(output_messages)
     })
     
-# dataset = Dataset.from_pandas(pd.DataFrame(data_for_training))
+# dataset = Dataset.from_pandas(pd.DataFrame(data_for_training)) # convert my data to a pandas dataframe
 
 # small_dataset = dataset.shuffle(seed=42).select(range(int(len(dataset) * 0.1)))
 
@@ -71,11 +71,9 @@ if output_messages and input_messages:
 # model = GPT2LMHeadModel.from_pretrained("gpt2")
 # tokenizer.pad_token = tokenizer.eos_token
 
-# def tokenize_function(examples):
-#     # Tokenize the inputs and outputs, and concatenate them with a special token
+# def tokenize_function(examples): # tokenizing
 #     inputs_and_outputs = [inp + tokenizer.eos_token + out for inp, out in zip(examples['input'], examples['output'])]
 #     tokenized_outputs = tokenizer(inputs_and_outputs, padding="max_length", truncation=True, max_length=512)
-#     # GPT-2 uses the same tokenized input IDs as labels for language modeling
 #     tokenized_outputs["labels"] = tokenized_outputs["input_ids"].copy()
 #     return tokenized_outputs
 
@@ -83,14 +81,14 @@ if output_messages and input_messages:
 
 # tokenized_small_dataset = small_dataset.map(tokenize_function, batched=True)
 
-# training_args = TrainingArguments(
+# training_args = TrainingArguments( # training arguments
 #     output_dir="test_trainer",
 #     per_device_train_batch_size=1,
 #     per_device_eval_batch_size=1,
 #     gradient_accumulation_steps=4
 # )
 
-# trainer = Trainer(
+# trainer = Trainer( # trainer
 #     model=model,
 #     args=training_args,
 #     train_dataset=tokenized_small_dataset,
