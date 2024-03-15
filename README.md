@@ -13,7 +13,7 @@ This project comprises three main parts:
     - Downloaded Discord data for training, preparing it as described in `data.py`.
 
 2. **Training Attempts**
-    - Attempted LLM training with the Lamini API and locally in 'data.py' and 'mode.py'.
+    - Attempted LLM training with the Lamini API and locally in `data.py` and `model.py`.
     - Explored high-level training options due to resource and time limitations.
 
 3. **Mock Discord LLM Bots**
